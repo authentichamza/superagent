@@ -83,7 +83,7 @@ export const siteConfig = {
       disabled: true,
     },
   ],
-  defaultLLM: "GPT_3_5_TURBO_16K_0613",
+  defaultLLM: "CUSTOMGPT",
   llms: [
     {
       id: "OPENAI",
@@ -133,6 +133,19 @@ export const siteConfig = {
         {
           value: "MISTRAL_7B_INSTRUCT_V01",
           title: "mistral-7b-instruct-v0.1",
+        },
+      ],
+    },
+    {
+      disabled: false,
+      id: "CUSTOMGPT",
+      description: "Use Open Source models on CustomGPT.",
+      name: "CustomGPT",
+      logo: "/hf-logo.png",
+      options: [
+        {
+          value: "CUSTOMGPT",
+          title: "CUSTOMGPT",
         },
       ],
     },

@@ -2,6 +2,7 @@ export enum LLMProvider {
   OPENAI,
   AZURE_OPENAI,
   HUGGINGFACE,
+  CUSTOMGPT
 }
 
 export enum LLMModel {
@@ -12,6 +13,7 @@ export enum LLMModel {
   GPT_4_32K_0613,
   GPT_4_1106_PREVIEW,
   MISTRAL_7B_INSTRUCT_V01,
+  CUSTOMGPT
 }
 
 export enum DatasourceType {

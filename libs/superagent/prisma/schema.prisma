@@ -14,6 +14,7 @@ enum LLMProvider {
   OPENAI
   AZURE_OPENAI
   HUGGINGFACE
+  CUSTOMGPT
 }
 
 enum LLMModel {
@@ -24,6 +25,7 @@ enum LLMModel {
   GPT_4_32K_0613
   GPT_4_1106_PREVIEW
   MISTRAL_7B_INSTRUCT_V01
+  CUSTOMGPT
 }
 
 enum ToolType {

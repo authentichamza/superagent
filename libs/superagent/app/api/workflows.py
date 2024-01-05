@@ -188,10 +188,16 @@ async def invoke(
             try:
                 task = asyncio.ensure_future(workflow.arun(input))
                 for workflowStep in workflowSteps:
-                    async for token in workflowStep["callback"].aiter():
-                        yield f"id: {workflowStep['agentName']}\ndata: {token}\n\n"
+                    logging.info(workflowStep)
+                    if workflowStep.agent.llms[0].llm.provider in ["CUSTOMGPT"]:
+                        for event in token:
+                    else:
+                        async for token in workflowStep["callback"].aiter():
+                            logging.info(token)
+                            yield f"id: {workflowStep['agentName']}\ndata: {token}\n\n"
                 await task
                 workflow_result = task.result()
+                logging.info(workflow_result)
 
                 for i in range(len(workflowSteps)):
                     result = workflow_result.get("steps", {}).get(i, {})
@@ -210,16 +216,16 @@ async def invoke(
 
             except Exception as e:
                 logging.error(f"Error in send_message: {e}")
-            finally:
-                workflowStep["callback"].done.set()
 
         generator = send_message()
+        logging.info(generator)
         return StreamingResponse(generator, media_type="text/event-stream")
 
     logging.info("Streaming not enabled. Invoking workflow synchronously...")
     output = await workflow.arun(
         input,
     )
+    logging.info(output)
 
     return {"success": True, "data": output}
 

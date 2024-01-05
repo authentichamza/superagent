@@ -15,5 +15,8 @@ LLM_PROVIDER_MAPPING = {
         "GPT_4_0613",
         "GPT_4_32K_0613",
         "GPT_4_1106_PREVIEW",
+    ],
+    "CUSTOMGPT": [
+        "CUSTOMGPT"
     ]
 }

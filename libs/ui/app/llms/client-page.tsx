@@ -254,6 +254,42 @@ export default function LLMClientPage({
                                 />
                               </div>
                             )}
+                            {llm.id === "CUSTOMGPT" && (
+                              <div className="flex flex-col space-y-2">
+                                <FormField
+                                  control={form.control}
+                                  name="apiKey"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>API key</FormLabel>
+                                      <FormControl>
+                                        <Input
+                                          placeholder="Enter your api key"
+                                          {...field}
+                                        />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                <FormField
+                                  control={form.control}
+                                  name="options.project_id"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>Project ID</FormLabel>
+                                      <FormControl>
+                                        <Input
+                                          placeholder="Enter your customgpt project_id"
+                                          {...field}
+                                        />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                              </div>
+                            )}
                             <DialogFooter>
                               <Button
                                 type="submit"

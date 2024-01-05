@@ -127,7 +127,7 @@ export function DataTable<TData, TValue>({
     defaultValues: {
       name: "",
       description: "",
-      llmModel: "GPT_3_5_TURBO_16K_0613",
+      llmModel: "CUSTOMGPT",
       isActive: true,
       tools: [],
       datasources: [],

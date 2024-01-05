@@ -59,6 +59,8 @@ class AgentBase:
                 output_schema=self.output_schema,
                 callback=self.callback,
             )
+        elif agent_config.llms[0].llm.provider in ["CUSTOMGPT"]:
+            return agent_config
         else:
             from app.agents.superagent import SuperagentAgent
 
